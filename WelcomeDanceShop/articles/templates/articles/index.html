@@ -1,0 +1,16 @@
+{%extends 'main/base.html'%}
+{% block content %}
+
+<ul class="two">
+{% for a in art_list %}
+<li>
+<h3><a href="{{a.get_absolute_url}}"><img src="{{ a.photo.url }}" width=150 height=150 align=middle>{{a.title}}</a></h3>
+    <hr>
+</li>
+{%endfor %}
+</ul>
+{%if user.is_staff%}
+    <div class="add-art"><a href="{% url 'add_art' %}">Добавить статью (для разрешенных) </a></div>
+{%endif%}
+{% endblock %}
+

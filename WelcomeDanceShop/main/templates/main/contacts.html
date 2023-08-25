@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<table cellspacing=80>
+    <tr>
+        <td>
+<a class="dg-widget-link"
+   href="http://2gis.ru/ivanovo/firm/9148465024090504/center/40.97545266151429,56.99845215882408/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">
+    Посмотреть на карте Иванова</a>
+<script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+<script charset="utf-8">new DGWidgetLoader({"width":500,"height":500,"borderColor":"#a3a3a3",
+"pos":{"lat":56.99845215882408,"lon":40.97545266151429,"zoom":16},"opt":{"city":"ivanovo"},
+"org":[{"id":"9148465024090504"}]});</script>
+        </td>
+        <td>
+            <p>Мы находимся по адресу:</p>
+            <p>г. Иваново, проспект Ленина, д.9</p>
+            <p>Телефон: +7(4932)123-45-67</p>
+            <hr><br>
+            <form class="order-form" enctype="multipart/form-data" method="post" action="{% url 'main:process_mail'%}">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <input type="submit" value="Отправить"></form>
+        </td>
+    </tr>
+</table>
+{% endblock %}

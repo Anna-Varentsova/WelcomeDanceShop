@@ -1,0 +1,281 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+
+html, body {
+  height: 100%;
+}
+.wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.content {
+  display: table-row;
+  height: 100%;
+    width: 100%;
+}
+h3 {
+  font-size:25px;
+  color: #606060;
+}
+a {
+  text-decoration: none;
+  font-family: 'Lora', serif;
+  transition: .5s linear;
+}
+nav {
+  display: inline-block;
+  margin: auto;
+  flex: 1 15%;
+  width: 100%;
+  font-weight: bold;
+}
+.one ul {
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  background: #ECDAD6;
+  margin: auto;
+  padding: 0.5em 0;
+  width: 100%;
+}
+.one a {
+  padding: 0.5em -0.5em;
+  color: #695753;
+}
+.one a:hover {background: #b19891;}
+
+.one li {
+  font-size: 25px;
+  background: rgba(177, 152, 145, .3);
+  display: inline-block;
+  text-align: center;
+  width: 20%;
+  padding: 0.5em 0em;
+}
+.one p {
+  padding: 1em;
+  background: rgba(177, 152, 145, .3);
+  border-right: 0px solid #b19891;
+  color: #606060;
+}
+.footer {
+ display: block;
+  text-align: center;
+  font-size: 31px;
+  color: #606060;
+  margin-top: -10px;
+  height: 55px;
+  background-color: rgba(177, 152, 145, .3);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.rubric li {
+  display: inline;
+}
+.list-pages {
+	text-align: center;
+	margin: 20px 0 0 0;
+}
+.list-pages ul {
+    padding: 1em 0;
+	margin: 20px 0 0 0;
+	list-style: none;
+}
+.list-pages ul li {
+	display: inline-block;
+	margin: 0 0 0 0;
+	background-color: rgba(177, 152, 145, .3);
+    color: #606060;
+}
+.list-pages .page-num, .page-num-selected {
+	text-align: center;
+	display: inline-block;
+	width: 60px;
+	height: 44px;
+	padding: 16px 0 0 0;
+	border: 2px solid #d0d0d0;
+	border-radius: 30px;
+}
+.list-pages a {
+    padding: 1em;
+	color: #606060;
+	font-size: 24px;
+	text-decoration: none;
+}
+.list-pages .page-num:hover {
+	box-shadow: 3px 3px 1px #d0d0d0;
+	background: #b19891;
+}
+.list-pages .page-num-selected {
+	border: None;
+	color: #000;
+	font-size: 20px;
+}
+.add-art {
+  display:block;
+  position:relative;
+  padding: 1em;
+  background: rgba(177, 152, 145, .3);
+  color: black;
+  text-align: center;
+  font-size: 20px;
+
+}
+.art {
+    text-indent: 20;
+    font-size: 30;
+}
+#nav5, #nav5 ul,  #nav5 li {
+  margin: 0;
+  padding: 0em;
+}
+#nav5 li {
+  display: inline-block;
+  width: 33%; /* кол-во пунктов меню, то есть 100% всего */
+  height:10px;
+  text-align: center;
+}
+#nav5 a {
+  display: block;
+  padding: 3px 0;
+  color: #695753;
+  text-decoration: none;
+  background: rgba(177, 152, 145, .3)
+}
+#nav5 a:hover {background: #b19891;}
+
+.myfield {
+    border:1px solid #ccc;
+    border-radius:5px;
+    height:20px;
+    width:300px;
+    margin: 10px 10px 10px 10px;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-image img {
+  max-width: 100%;
+}
+.product-card {
+  flex: 1 1 25%;
+}
+.products a {
+    color: #606060;
+}
+.product a:hover {color: white;}
+
+.forma {
+    width: 600px;
+    margin: auto;
+}
+.button {
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  padding: 20px 30px;
+  margin: 10px 20px ;
+  margin-left: 74%;
+  font-family: 'Lora', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, rgba(177, 152, 145, .3) 0%, #b9a29c, rgba(177, 152, 145, .3) 100%);
+  background-size: 150% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+.button:hover {
+  background-position: right center;
+}
+.two ul {
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  background: #ECDAD6;
+
+}
+.two a {
+  padding: 1em;
+  background: rgba(177, 152, 145, .3);
+  border-right: 0px solid #b19891;
+  color: #695753;
+  display: inline;
+}
+.two a:hover {background: #b19891;}
+.two li {
+  display: inline;
+  font-size: 31px;
+}
+
+.order-info {
+    float:right;
+    width:300px;
+    background:#d0c1bd;
+    padding:10px 20px;
+    color:#333;
+}
+.order-info h3 {
+    color:#606060;
+}
+.order-info ul li {
+    margin:0;
+    padding:0;
+    font-size:14px;
+}
+.order-info p {
+    font-weight:bold;
+    float:left;
+}
+.order-info span {
+    float:right;
+}
+form p label, form p input, form p textarea {
+    float:left;
+    clear:both;
+}
+form p label {
+    font-size:14px;
+    padding-bottom:4px;
+}
+form p input, form p textarea {
+    width:300px;
+    font-size:13px;
+    margin-bottom:10px;
+    padding:10px 12px;
+    border:0;
+    background:#efefef;
+    color:#666;
+    border-radius:4px;
+    }
+.order-form {
+    float:left;
+}
+.order-form-2 {
+    display: inline-block;
+    width:auto;
+    background:#d0c1bd;
+    padding:10px 30px 30px 30px;
+    color:#333;
+    margin-left: 35%;}
+
+.button-1 {
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  padding: 20px 30px;
+  margin: 10px 20px ;
+  margin-right: auto;
+  font-family: 'Lora', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, rgba(177, 152, 145, .3) 0%, #b9a29c, rgba(177, 152, 145, .3) 100%);
+  background-size: 150% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+  cursor: pointer;
+}
+.button:hover {
+  background-position: right center;
+}

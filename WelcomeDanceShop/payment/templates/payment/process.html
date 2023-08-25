@@ -1,0 +1,33 @@
+{%extends 'main/base.html'%}
+{% block content %}
+<h3 align="center">Проверьте ваш заказ</h3>
+ <table  border cellpadding=5 cellspacing=0 width=80% align="center" bgcolor="#e0d6d3">
+ <thead bgcolor='#d0c1bd'>
+ <tr>
+ <th>Товар</th>
+ <th>Стоимость</th>
+ <th>Количество</th>
+ <th>Итого</th>
+ </tr>
+ </thead>
+ <tbody>
+ {% for item in order.items.all %}
+ <tr align="center">
+ <td>{{ item.product.title }}</td>
+ <td>{{ item.price }} руб.</td>
+ <td>{{ item.quantity }}</td>
+ <td>{{ item.get_cost }}руб.</td>
+ </tr>
+ {% endfor %}
+ <tr align="center" bgcolor="#d0c1bd">
+  <td>Итого</td>
+ <td colspan="2"></td>
+ <td>{{ order.get_total_cost }} руб.</td>
+ </tr>
+ </tbody>
+ </table>
+ <form action="{% url 'payment:process' %}" method="post">
+ <input type="submit" value="Оплатить" class="button">
+ {% csrf_token %}
+ </form>
+{% endblock %}

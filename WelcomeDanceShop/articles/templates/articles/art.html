@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<img src="{{ artic.photo1.url }}" align=left hspace=20>
+    <div class="art">
+        <h1>{{artic.title}}</h1>
+        <p>{{artic.content}}</p>
+        <p>{{artic.content2}}</p>
+        <p>{{artic.content3}}</p>
+        <p>{{artic.content4}}</p>
+    </div>
+<br>
+{% endblock %}

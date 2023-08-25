@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load goods_tags %}
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<div class="forma">
+    <form method="get" action="">{{form}}<button type="submit">Поиск</button></form>
+</div>
+<br>
+    <ul id="nav5">
+{% for c in cats %}
+<li><h2><a href="{{c.get_absolute_url}}">{{c.name}}</a></h2></li>
+{%endfor %}
+    </ul>
+<br>
+<br>
+<section class="products">
+ {% for g in g_list %}
+  <div class="product-card">
+    <div class="product-image">
+        {% if g.photo %}
+     <a href="{{g.get_absolute_url}}"><img src="{{ g.photo.url }}" width=300 height=400 align=middle></a>
+        {% else %}
+        <a href="{{g.get_absolute_url}}"><img src="../WDS/cub.jpg" alt="тут картинка" width=300 height=400></a>
+        {% endif %}
+    </div>
+    <div class="product-info">
+        <h4><a href="{{g.get_absolute_url}}">{{g.title}}</a></h4>
+      <h5><a href="{{g.get_absolute_url}}">{{g.price}} рублей</a></h5>
+    </div>
+  </div>
+    {%endfor%}
+</section>
+{% endblock %}

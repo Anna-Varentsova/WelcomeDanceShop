@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+{% endblock %}
+{%block content%}
+<br>
+<h3 align="center">{{good.title}}</h3>
+<table cellpadding=5 cellspacing=0 width=70% align="center">
+    <tbody>
+    <tr><td width=300 rowspan=6>
+{%if good.photo%}
+<img src="{{good.photo.url}}" width=300 height=400 alt="Фото товара">
+        {% else %} <p>Нет фото</p>
+{%endif%}
+    </td></tr>
+ <tr><td width=500>Пол: {{good.gender}} </td></tr>
+ <tr><td>Цвет: {{good.color}} </td></tr>
+ <tr><td>Стоимость: {{ good.price }} руб. </td></tr>
+ <tr><td>{% if good.quantity < 1 %}
+Товар отсутствует
+ {% else %}
+<form action='{% url "cart:cart_add" good.id %}' method="post">
+    {{ cart_product_form.quantity }}
+    <input type="submit" value="В корзину" class="button-1">
+        {% csrf_token %}</form>
+{% endif %} </td></tr>
+ <tr align="justify"><td>{{good.content|linebreaks}} </td></tr>
+    </tbody>
+</table>
+{%endblock%}

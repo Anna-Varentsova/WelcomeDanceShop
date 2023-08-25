@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'main/css/styles.css'%}">
+</head>
+<body bgcolor="LightGrey">
+{% block mainmenu%}
+    <nav class="one">
+    <ul>
+        <li><a href="{%url 'main:to_main'%}">На главную</a></li>
+        <li><a href="{%url 'to_articles'%}">Статьи</a></li>
+        <li><a href="{%url 'goods'%}">Каталог товаров</a></li>
+        {% with total_items=cart|length %}
+            {% if total_items > 0 %}
+        <li><a href="{%url 'cart:cart_detail'%}">Корзина({{total_items}})</a></li>
+            {% else %}
+        <li><a href="{%url 'cart:cart_detail'%}">Корзина</a></li>
+            {% endif %}
+        {% endwith %}
+        {% if request.user.is_authenticated %}
+        <li><a href="#">Здравствуйте, {{user.username}}</a></li>
+        <li><a href="{%url 'main:logout'%}">Выйти</a></li>
+        {% else %}
+        <li><a href="{%url 'main:register'%}">Регистрация</a></li>
+        <li><a href="{%url 'main:login'%}">Войти</a></li>
+        {% endif %}
+    </ul>
+    </nav>
+{% endblock mainmenu%}
+<div class="wrapper">
+      <div class="content">
+{% block content %}
+{% endblock %}
+      </div></div>
+{% if page_obj.has_other_pages %}
+<div class='list-pages'>
+    <ul>
+        {% if page_obj.has_previous %}
+        <li class="page-num"><a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+        {% endif %}
+        {% for p in paginator.page_range %}
+        {% if page_obj.number == p %}
+        <li class="page_num page-num-selected">{{p}}</li>
+        {% elif p >= page_obj.number|add:-3 and p <= page_obj.number|add:3 %}
+        <li class="page-num"><a href="?page={{p}}">{{p}}</a></li>
+        {%endif%}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li class="page-num"><a href="?page={{ page_obj.next_page_number }}">&gt;</a> </li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
+<p><a class="footer" href="{%url 'main:contacts'%}">Свяжитесь с нами!</a></p>
+</body>
+</html>
+

@@ -1,0 +1,60 @@
+{%extends 'main/base.html'%}
+{% load static %}
+{% block content %}
+<br><br>
+{% if cart|length > 0 %}
+    <p align="center">{% with total_items=cart|length %}
+            В корзине:
+                {{ total_items }} товар(ов) на
+                {{ cart.get_total_price }} руб.
+        {% endwith %}</p>
+    <br>
+<table border cellpadding=5 cellspacing=0 width=80% align="center" bgcolor="#e0d6d3">
+ <thead bgcolor='#d0c1bd'>
+ <tr>
+ <th>Фото</th>
+ <th>Товар</th>
+ <th>Количество</th>
+ <th>Удалить</th>
+ <th>Стоимость</th>
+ <th>Общая стоимость</th>
+ </tr>
+ </thead>
+
+ <tbody>
+ {% for item in cart %}
+   {% with product=item.product %}
+      <tr align="center">
+        <td><a href="{{ product.get_absolute_url }}"><img src="{{ product.photo.url }}" width=120 height=160></a></td>
+        <td>{{ product.title }}</td>
+        <td><form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {{ item.update_quantity_form.quantity }}
+            {{ item.update_quantity_form.override }}
+            <input type="submit" value="Изменить">
+            {% csrf_token %}
+        </form></td>
+        <td>
+          <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+            <input type="submit" value="Удалить">
+            {% csrf_token %}
+          </form>
+        </td>
+        <td>{{ item.price }} руб.</td>
+          <td>{{ item.total_price }} руб.</td>
+      </tr>
+   {% endwith %}
+ {% endfor %}
+
+
+ <tr align="center"  bgcolor="#d0c1bd">
+   <td>Итого</td>
+   <td colspan="4"></td>
+   <td>{{ cart.get_total_price }} руб.</td>
+     </tbody>
+</table>
+
+    <a href="{% url 'orders:order_create' %}" class="button">Создать заказ</a></div>
+        {% else %}
+<h3 align="center">В корзине нет товаров</h3>
+        {% endif %}
+{% endblock %}
